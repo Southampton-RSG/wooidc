@@ -50,6 +50,9 @@ if (Meteor.release) {
 
 var getTokens = function (query) {
     var config = ServiceConfiguration.configurations.findOne({service: 'wooidc'});
+
+   //<Define confnode here too for one WO node>
+
     if (!config)
       throw new ServiceConfiguration.ConfigError();
 

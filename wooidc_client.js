@@ -4,7 +4,7 @@ Wooidc = {};
 // @param options {optional}
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
 //   completion. Takes one argument, credentialToken on success, or Error on error.
-Wooidc.requestCredential = function (options, credentialRequestCompleteCallback) {
+Wooidc.requestCredential = function (options, wonode, credentialRequestCompleteCallback) {
 
     // support both (options, callback) and (callback).
     if (!credentialRequestCompleteCallback && typeof options === 'function') {
@@ -13,6 +13,12 @@ Wooidc.requestCredential = function (options, credentialRequestCompleteCallback)
     }
 
     var config = ServiceConfiguration.configurations.findOne({ service: 'wooidc' });
+    console.log(config);
+
+    //Array of configured domains.
+    //var configArray = conf.config;  
+
+    //var confnode = "One WO node's configuration";
 
     if (!config) {
         credentialRequestCompleteCallback(new ServiceConfiguration.ConfigError(new ServiceConfiguration.ConfigError()));
