@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.use('templating@1.1.9', 'client');
   api.use('random@1.0.9', 'client');
   api.use('service-configuration@1.0.9', ['client','server']);
- 
+  
   api.export('Wooidc');
 
   api.addFiles(['wooidc_configure.html', 'wooidc_configure.js', 'wooidc_check_session.html', 'wooidc_check_session.js'], 'client');
