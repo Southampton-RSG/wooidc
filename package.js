@@ -20,9 +20,10 @@ Package.onUse(function(api) {
   api.use('service-configuration@1.0.9', ['client','server']);
   
   api.export('Wooidc');
+  api.export('selectedWONode');
 
   api.addFiles(['wooidc_configure.html', 'wooidc_configure.js', 'wooidc_check_session.html', 'wooidc_check_session.js'], 'client');
-
+  api.addFiles(['wooidc_global_methods.js'], ['client','server']);
   api.addFiles('wooidc_server.js', 'server');
   api.addFiles('wooidc_client.js', 'client')
 

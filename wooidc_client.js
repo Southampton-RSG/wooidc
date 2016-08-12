@@ -1,5 +1,7 @@
 Wooidc = {};
 
+//var selectedWONode;
+
 // Request Web Observatory (Southampton) credentials for the user
 // @param options {optional}
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
@@ -104,6 +106,19 @@ Wooidc.requestCredential = function (options, wonode, credentialRequestCompleteC
         credentialToken: credentialToken,
         popupOptions: popupOptions
     });
+
+    selectedWONode = Meteor.call('selectedWOnode',wonode);
+    console.log("WO Node to be logged into is: ", selectedWONode);
+   
+    /* Exports */
+    //if (typeof Package === "undefined") Package = {};
+    
+   Package.wooidc = {
+      selectedWONode: selectedWONode
+    };
+
+   
 };
+
 
 Meteor.subscribe('wooidcSessionState');
